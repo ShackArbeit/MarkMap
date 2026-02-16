@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Next.js Fetching Data&#xff08;&#x91cd;&#x9ede;&#x8907;&#x7fd2;&#x7248;&#xff09;","children":[{"content":"1) Server Components&#xff1a;&#x5728;&#x54ea;&#x88e1;&#x6293;&#x8cc7;&#x6599;&#xff1f;","children":[{"content":"fetch &#x91cd;&#x9ede;","children":[{"content":"&#x5beb;&#x6210; <code>async</code> component&#xff0c;<code>await fetch()</code>","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"<code>fetch</code> &#x56de;&#x61c9; <strong>&#x9810;&#x8a2d;&#x4e0d; cache</strong>","children":[],"payload":{"tag":"li","lines":"14,15"}},{"content":"&#x60f3;&#x5f37;&#x5236;&#x6bcf;&#x6b21;&#x90fd;&#x52d5;&#x614b;&#x6293;&#xff1a;<code>{ cache: &apos;no-store&apos; }</code>","children":[],"payload":{"tag":"li","lines":"15,17"}}],"payload":{"tag":"h3","lines":"12,13"}},{"content":"ORM / DB &#x91cd;&#x9ede;","children":[{"content":"&#x56e0;&#x70ba;&#x5728; server render &#x2192; &#x53ef;&#x5b89;&#x5168;&#x67e5; DB","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"&#x540c;&#x6a23;&#x7528; <code>async</code> + <code>await</code>","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h3","lines":"17,18"}}],"payload":{"tag":"h2","lines":"6,7"}},{"content":"2) Client Components&#xff1a;&#x600e;&#x9ebc;&#x6293;&#x8cc7;&#x6599;&#xff1f;","children":[{"content":"(A) React <code>use()</code> + Suspense&#xff08;&#x4e32;&#x6d41;&#xff09;","children":[{"content":"Server&#xff1a;&#x5148;&#x547c;&#x53eb;&#x6293;&#x8cc7;&#x6599;&#x51fd;&#x5f0f; <strong>&#x4e0d;&#x8981; await</strong>&#xff0c;&#x628a; Promise &#x50b3;&#x4e0b;&#x53bb;","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"Client&#xff1a;<code>use(promise)</code> &#x8b80;&#x8cc7;&#x6599;","children":[],"payload":{"tag":"li","lines":"30,31"}},{"content":"&#x5916;&#x5c64;&#xff1a;&#x7528; <code>&lt;Suspense fallback&gt;</code> &#x986f;&#x793a; loading","children":[],"payload":{"tag":"li","lines":"31,33"}}],"payload":{"tag":"h3","lines":"28,29"}},{"content":"(B) SWR / React Query","children":[{"content":"Client &#x7aef;&#x76f4;&#x63a5;&#x6293;","children":[],"payload":{"tag":"li","lines":"34,35"}},{"content":"&#x81ea;&#x884c;&#x8655;&#x7406; <code>isLoading / error / cache</code>&#xff08;&#x4f9d;&#x5957;&#x4ef6;&#x898f;&#x5247;&#xff09;","children":[],"payload":{"tag":"li","lines":"35,37"}}],"payload":{"tag":"h3","lines":"33,34"}}],"payload":{"tag":"h2","lines":"23,24"}},{"content":"3) &#x53bb;&#x91cd;&#x8907;&#x8acb;&#x6c42;&#xff08;Deduplicate&#xff09;&#x8207;&#x5feb;&#x53d6;&#xff08;Cache&#xff09;","children":[{"content":"Request memoization&#xff08;&#x540c;&#x4e00;&#x6b21; request &#x5167;&#xff09;","children":[{"content":"&#x540c;&#x4e00; render pass &#x5167;&#x76f8;&#x540c; <code>GET/HEAD</code>&#xff08;&#x540c; URL+options&#xff09;&#x6703;&#x81ea;&#x52d5;&#x5408;&#x4f75;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"&#x7bc4;&#x570d;&#xff1a;&#x53ea;&#x5728; <strong>&#x55ae;&#x6b21; request &#x751f;&#x547d;&#x9031;&#x671f;</strong>","children":[],"payload":{"tag":"li","lines":"42,43"}},{"content":"&#x60f3;&#x9000;&#x51fa;&#xff1a;<code>fetch</code> &#x5e36; <code>AbortSignal</code>","children":[],"payload":{"tag":"li","lines":"43,45"}}],"payload":{"tag":"h3","lines":"40,41"}},{"content":"Next.js Data Cache&#xff08;&#x53ef;&#x8de8; requests&#xff09;","children":[{"content":"&#x4f8b;&#x5982; <code>fetch</code> &#x7528; <code>cache: &apos;force-cache&apos;</code>","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"&#x80fd;&#x5171;&#x4eab;&#xff1a;&#x540c; render pass + &#x5f8c;&#x7e8c; incoming requests","children":[],"payload":{"tag":"li","lines":"47,49"}}],"payload":{"tag":"h3","lines":"45,46"}},{"content":"&#x4e0d;&#x7528; fetch&#xff08;&#x76f4;&#x63a5; DB/ORM&#xff09;","children":[{"content":"&#x7528; <code>React.cache()</code> &#x5305;&#x8cc7;&#x6599;&#x5b58;&#x53d6;&#x51fd;&#x5f0f;&#xff08;&#x907f;&#x514d;&#x540c; request &#x5167;&#x91cd;&#x8907;&#x67e5;&#xff09;","children":[],"payload":{"tag":"li","lines":"50,52"}}],"payload":{"tag":"h3","lines":"49,50"}}],"payload":{"tag":"h2","lines":"39,40"}},{"content":"4) Streaming&#xff08;&#x91cd;&#x9ede;&#xff1a;&#x907f;&#x514d;&#x6162;&#x8cc7;&#x6599;&#x5361;&#x6574;&#x9801;&#xff09;","children":[{"content":"&#x70ba;&#x4ec0;&#x9ebc;&#x9700;&#x8981;&#xff1f;","children":[{"content":"Server Components &#x6293;&#x8cc7;&#x6599;&#x6162; &#x2192; &#x53ef;&#x80fd;&#x963b;&#x585e;&#x6574;&#x689d; route","children":[],"payload":{"tag":"li","lines":"58,60"}}],"payload":{"tag":"h3","lines":"57,58"}},{"content":"&#x5169;&#x7a2e;&#x65b9;&#x5f0f;","children":[{"content":"1. <code>loading.tsx</code>","children":[],"payload":{"tag":"li","lines":"61,62","listIndex":1}},{"content":"","children":[{"content":"&#x653e;&#x5728; route &#x8cc7;&#x6599;&#x593e;","children":[],"payload":{"tag":"li","lines":"62,63"}},{"content":"&#x6548;&#x679c;&#xff1a;&#x5207;&#x9801;&#x7acb;&#x523b;&#x770b;&#x5230; loading&#xff08;&#x6574;&#x6bb5; route streaming&#xff09;","children":[],"payload":{"tag":"li","lines":"63,65"}}],"payload":{"tag":"ul","lines":"62,65"}},{"content":"2. <code>&lt;Suspense&gt;</code>","children":[],"payload":{"tag":"li","lines":"65,66","listIndex":2}},{"content":"","children":[{"content":"&#x66f4;&#x7d30;&#x7c92;&#x5ea6;&#xff1a;&#x53ea;&#x5305;&#x4f4f;&#x6162;&#x7684;&#x5340;&#x584a;","children":[],"payload":{"tag":"li","lines":"66,67"}},{"content":"boundary &#x5916;&#x5167;&#x5bb9;&#x5148;&#x986f;&#x793a;&#xff0c;boundary &#x5167;&#x518d;&#x4e32;&#x6d41;&#x88dc;&#x4e0a;","children":[],"payload":{"tag":"li","lines":"67,69"}}],"payload":{"tag":"ul","lines":"66,69"}}],"payload":{"tag":"h3","lines":"60,61"}},{"content":"Loading UI &#x539f;&#x5247;","children":[{"content":"&#x8981;&#x300c;&#x6709;&#x610f;&#x7fa9;&#x300d;&#xff1a;skeleton / spinner / &#x9810;&#x89bd;&#x5340;&#x584a;&#xff08;&#x63d0;&#x5347;&#x9ad4;&#x611f;&#xff09;","children":[],"payload":{"tag":"li","lines":"70,72"}}],"payload":{"tag":"h3","lines":"69,70"}}],"payload":{"tag":"h2","lines":"54,55"}},{"content":"5) &#x5e38;&#x898b;&#x8cc7;&#x6599;&#x6293;&#x53d6;&#x6a21;&#x5f0f;&#xff08;&#x53ea;&#x8a18;&#x4e09;&#x500b;&#xff09;","children":[{"content":"Sequential&#xff08;&#x5e8f;&#x5217;&#xff09;","children":[{"content":"&#x5f8c;&#x4e00;&#x500b;&#x8acb;&#x6c42;&#x4f9d;&#x8cf4;&#x524d;&#x4e00;&#x500b;&#x7d50;&#x679c;&#xff08;&#x6703;&#x5361;&#xff09;","children":[],"payload":{"tag":"li","lines":"76,77"}},{"content":"&#x7528; Suspense &#x53ea;&#x80fd;&#x8b93;&#x300c;&#x5f8c;&#x6bb5;&#x300d;&#x4e32;&#x6d41;&#xff1b;&#x7b2c;&#x4e00;&#x6bb5;&#x4ecd;&#x6703;&#x5148;&#x963b;&#x585e;","children":[],"payload":{"tag":"li","lines":"77,78"}},{"content":"&#x6539;&#x5584;&#xff1a;&#x52a0; <code>loading.tsx</code> &#x6216;&#x628a;&#x7b2c;&#x4e00;&#x6bb5;&#x8b8a;&#x5feb;/&#x53ef;&#x5feb;&#x53d6;","children":[],"payload":{"tag":"li","lines":"78,80"}}],"payload":{"tag":"h3","lines":"75,76"}},{"content":"Parallel&#xff08;&#x5e73;&#x884c;&#xff09;","children":[{"content":"&#x5148;&#x62ff; promises&#xff0c;&#x518d; <code>Promise.all()</code>","children":[],"payload":{"tag":"li","lines":"81,82"}},{"content":"&#x6ce8;&#x610f;&#xff1a;<code>Promise.all</code> &#x4efb;&#x4e00;&#x5931;&#x6557;&#x6703;&#x5168;&#x5931;&#x6557;&#xff08;&#x9700;&#x8981;&#x53ef;&#x7528; <code>Promise.allSettled</code>&#xff09;","children":[],"payload":{"tag":"li","lines":"82,84"}}],"payload":{"tag":"h3","lines":"80,81"}},{"content":"Preload&#xff08;&#x9810;&#x8f09;&#xff09;","children":[{"content":"&#x5148; <code>preload(id)</code>&#xff08;&#x7528; <code>void getItem(id)</code> &#x63d0;&#x524d;&#x767c;&#x8d77;&#x8acb;&#x6c42;&#xff09;","children":[],"payload":{"tag":"li","lines":"85,86"}},{"content":"&#x518d;&#x505a;&#x5176;&#x4ed6;&#x963b;&#x585e;&#x5de5;&#x4f5c;","children":[],"payload":{"tag":"li","lines":"86,87"}},{"content":"&#x53ef;&#x642d;&#x914d; <code>React.cache()</code> + <code>server-only</code> &#x505a;&#x6210; server-only &#x53ef;&#x91cd;&#x7528;&#x5de5;&#x5177;","children":[],"payload":{"tag":"li","lines":"87,89"}}],"payload":{"tag":"h3","lines":"84,85"}}],"payload":{"tag":"h2","lines":"74,75"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>

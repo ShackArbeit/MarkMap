@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Next.js Linking &amp; Navigating&#xff08;&#x91cd;&#x9ede;&#x8907;&#x7fd2;&#x7248;&#xff09;","children":[{"content":"1) Next.js &#x5c0e;&#x822a;&#x70ba;&#x4ec0;&#x9ebc;&#x9700;&#x8981;&#x6700;&#x4f73;&#x5316;&#xff1f;","children":[{"content":"&#x8def;&#x7531;&#x9810;&#x8a2d; <strong>&#x5728; server render</strong>","children":[],"payload":{"tag":"li","lines":"8,9"}},{"content":"&#x554f;&#x984c;&#xff1a;&#x5207;&#x9801;&#x6642;&#x53ef;&#x80fd;&#x8981;&#x7b49; server &#x56de;&#x61c9;&#x624d;&#x770b;&#x5230;&#x65b0;&#x9801;","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"&#x89e3;&#x6cd5;&#xff1a;Next.js &#x5167;&#x5efa;","children":[{"content":"<strong>Prefetching</strong>","children":[],"payload":{"tag":"li","lines":"11,12"}},{"content":"<strong>Streaming&#xff08;loading.tsx / Suspense&#xff09;</strong>","children":[],"payload":{"tag":"li","lines":"12,13"}},{"content":"<strong>Client-side transitions&#xff08;Link&#xff09;</strong>","children":[],"payload":{"tag":"li","lines":"13,15"}}],"payload":{"tag":"li","lines":"10,15"}}],"payload":{"tag":"h2","lines":"7,8"}},{"content":"2) Server Rendering&#xff08;&#x5169;&#x7a2e;&#xff09;","children":[{"content":"<strong>Static Rendering / Prerendering</strong>","children":[{"content":"build time &#x6216; revalidation &#x6642;&#x7522;&#x751f;","children":[],"payload":{"tag":"li","lines":"19,20"}},{"content":"&#x7d50;&#x679c;&#x53ef;&#x5feb;&#x53d6; &#x2192; &#x901f;&#x5ea6;&#x5feb;","children":[],"payload":{"tag":"li","lines":"20,21"}}],"payload":{"tag":"li","lines":"18,21"}},{"content":"<strong>Dynamic Rendering</strong>","children":[{"content":"request time &#x624d; render","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"&#x8cc7;&#x6599;&#x65b0;&#x4f46;&#x53ef;&#x80fd;&#x8f03;&#x6162;","children":[],"payload":{"tag":"li","lines":"23,25"}}],"payload":{"tag":"li","lines":"21,25"}}],"payload":{"tag":"h2","lines":"17,18"}},{"content":"3) Prefetching&#xff08;&#x9810;&#x6293;&#x8def;&#x7531;&#xff09;","children":[{"content":"Prefetch &#x7684;&#x7bc4;&#x570d;&#xff08;&#x91cd;&#x9ede;&#xff09;","children":[{"content":"<strong>Static route</strong>&#xff1a;&#x901a;&#x5e38;&#x53ef; <strong>&#x5b8c;&#x6574; prefetch</strong>","children":[],"payload":{"tag":"li","lines":"36,37"}},{"content":"<strong>Dynamic route</strong>&#xff1a;&#x53ef;&#x80fd; <strong>&#x8df3;&#x904e;</strong>&#xff0c;&#x6216;&#x6709; <code>loading.tsx</code> &#x6642; <strong>&#x90e8;&#x5206; prefetch</strong>","children":[],"payload":{"tag":"li","lines":"37,39"}}],"payload":{"tag":"h3","lines":"35,36"}}],"payload":{"tag":"h2","lines":"29,30"}},{"content":"4) Streaming&#xff1a;&#x7528; <code>loading.tsx</code> &#x8b93;&#x52d5;&#x614b;&#x8def;&#x7531;&#x4e5f;&#x300c;&#x5148;&#x6709;&#x756b;&#x9762;&#x300d;","children":[{"content":"&#x597d;&#x8655;&#xff08;&#x8a18; 3 &#x500b;&#x5c31;&#x597d;&#xff09;","children":[{"content":"&#x4f7f;&#x7528;&#x8005;&#x7acb;&#x523b;&#x770b;&#x5230;&#x56de;&#x994b;&#xff08;&#x4e0d;&#x6703;&#x89ba;&#x5f97;&#x5361;&#x4f4f;&#xff09;","children":[],"payload":{"tag":"li","lines":"49,50"}},{"content":"shared layout &#x4ecd;&#x53ef;&#x4e92;&#x52d5;&#x3001;&#x5c0e;&#x822a;&#x53ef;&#x4e2d;&#x65b7;","children":[],"payload":{"tag":"li","lines":"50,51"}},{"content":"Core Web Vitals &#x66f4;&#x597d;&#xff08;TTFB / FCP / TTI&#xff09;","children":[],"payload":{"tag":"li","lines":"51,53"}}],"payload":{"tag":"h3","lines":"48,49"}}],"payload":{"tag":"h2","lines":"41,42"}},{"content":"5) Client-side transitions&#xff08;Link &#x7684;&#x95dc;&#x9375;&#x50f9;&#x503c;&#xff09;","children":[{"content":"&#x50b3;&#x7d71; SSR &#x5207;&#x9801;&#xff1d;&#x6574;&#x9801; reload &#x2192; state &#x6e05;&#x7a7a;&#x3001;scroll &#x91cd;&#x7f6e;&#x3001;&#x4e92;&#x52d5;&#x4e2d;&#x65b7;","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"Next.js <code>&lt;Link&gt;</code>&#xff1a;","children":[{"content":"&#x4fdd;&#x7559; shared layout","children":[],"payload":{"tag":"li","lines":"58,59"}},{"content":"&#x7528; prefetched loading &#x6216;&#x65b0;&#x9801;&#x5167;&#x5bb9;&#x300c;&#x5c40;&#x90e8;&#x66ff;&#x63db;&#x300d;","children":[],"payload":{"tag":"li","lines":"59,60"}}],"payload":{"tag":"li","lines":"57,60"}},{"content":"&#x8b93; SSR app &#x4e5f;&#x6709; SPA &#x7684;&#x5207;&#x9801;&#x9ad4;&#x611f;","children":[],"payload":{"tag":"li","lines":"60,62"}}],"payload":{"tag":"h2","lines":"55,56"}},{"content":"6) &#x5e38;&#x898b;&#x300c;&#x5207;&#x9801;&#x8b8a;&#x6162;&#x300d;&#x539f;&#x56e0; + &#x5c0d;&#x7b56;","children":[{"content":"A) Dynamic route &#x6c92;&#x6709; <code>loading.tsx</code>","children":[{"content":"&#x6703;&#x7b49; server &#x56de;&#x61c9;&#x624d;&#x6709;&#x756b;&#x9762; &#x2192; &#x9ad4;&#x611f;&#x5361;","children":[],"payload":{"tag":"li","lines":"66,67"}},{"content":"&#x2705; &#x5c0d;&#x7b56;&#xff1a;&#x52a0; <code>loading.tsx</code>","children":[],"payload":{"tag":"li","lines":"67,69"}}],"payload":{"tag":"h3","lines":"65,66"}},{"content":"B) Dynamic segment &#x6c92;&#x6709; <code>generateStaticParams</code>","children":[{"content":"&#x539f;&#x672c;&#x53ef; prerender &#x7684;&#x8def;&#x7531;&#x8b8a;&#x6210; request-time dynamic","children":[],"payload":{"tag":"li","lines":"70,71"}},{"content":"&#x2705; &#x5c0d;&#x7b56;&#xff1a;&#x88dc; <code>generateStaticParams</code>","children":[],"payload":{"tag":"li","lines":"71,73"}}],"payload":{"tag":"h3","lines":"69,70"}},{"content":"C) &#x6162;&#x7db2;&#x8def;&#xff1a;prefetch &#x4f86;&#x4e0d;&#x53ca;","children":[{"content":"fallback &#x53ef;&#x80fd;&#x4e5f;&#x9084;&#x6c92; prefetch &#x5230;","children":[],"payload":{"tag":"li","lines":"74,75"}},{"content":"&#x2705; &#x5c0d;&#x7b56;&#xff1a;&#x7528; <code>useLinkStatus()</code> &#x505a;&#x300c;&#x7acb;&#x5373;&#x63d0;&#x793a;&#x300d;&#xff08;&#x5982;&#x5c0f; spinner / &#x9032;&#x5ea6;&#x689d;&#xff09;","children":[],"payload":{"tag":"li","lines":"75,77"}}],"payload":{"tag":"h3","lines":"73,74"}},{"content":"D) Prefetch &#x592a;&#x591a;&#x6d6a;&#x8cbb;&#x8cc7;&#x6e90;&#xff08;&#x5927;&#x91cf; links&#xff09;","children":[{"content":"&#x2705; &#x5c0d;&#x7b56; 1&#xff1a;<code>&lt;Link prefetch={false}&gt;</code>","children":[],"payload":{"tag":"li","lines":"78,79"}},{"content":"&#x2705; &#x5c0d;&#x7b56; 2&#xff1a;&#x53ea;&#x5728; hover &#x624d; prefetch&#xff08;hover prefetch pattern&#xff09;","children":[],"payload":{"tag":"li","lines":"79,81"}}],"payload":{"tag":"h3","lines":"77,78"}},{"content":"E) Hydration &#x9084;&#x6c92;&#x5b8c;&#x6210;","children":[{"content":"<code>&lt;Link&gt;</code> &#x662f; Client Component&#xff0c;&#x672a; hydrated &#x524d;&#x7121;&#x6cd5;&#x958b;&#x59cb; prefetch","children":[],"payload":{"tag":"li","lines":"82,83"}},{"content":"&#x2705; &#x5c0d;&#x7b56;&#xff1a;","children":[{"content":"&#x964d;&#x4f4e; client bundle&#xff08;bundle analyzer&#xff09;","children":[],"payload":{"tag":"li","lines":"84,85"}},{"content":"&#x80fd;&#x642c;&#x5230; server &#x7684;&#x908f;&#x8f2f;&#x5c31;&#x642c;&#x5230; server","children":[],"payload":{"tag":"li","lines":"85,87"}}],"payload":{"tag":"li","lines":"83,87"}}],"payload":{"tag":"h3","lines":"81,82"}}],"payload":{"tag":"h2","lines":"64,65"}},{"content":"7) Native History API&#xff08;&#x53ef;&#x8207; Next Router &#x6574;&#x5408;&#xff09;","children":[{"content":"<code>window.history.pushState</code>&#xff1a;","children":[{"content":"&#x65b0;&#x589e; history entry&#xff08;&#x53ef;&#x8fd4;&#x56de;&#xff09;","children":[],"payload":{"tag":"li","lines":"91,92"}},{"content":"&#x5e38;&#x7528;&#xff1a;&#x7528; query &#x66f4;&#x65b0;&#x6392;&#x5e8f;/&#x7be9;&#x9078;","children":[],"payload":{"tag":"li","lines":"92,93"}}],"payload":{"tag":"li","lines":"90,93"}},{"content":"<code>window.history.replaceState</code>&#xff1a;","children":[{"content":"&#x66ff;&#x63db;&#x7576;&#x524d; entry&#xff08;&#x4e0d;&#x53ef;&#x8fd4;&#x56de;&#xff09;","children":[],"payload":{"tag":"li","lines":"94,95"}},{"content":"&#x5e38;&#x7528;&#xff1a;&#x5207;&#x63db;&#x8a9e;&#x7cfb;/&#x8def;&#x5f91;&#x4f46;&#x4e0d;&#x60f3;&#x65b0;&#x589e;&#x8fd4;&#x56de;&#x9ede;","children":[],"payload":{"tag":"li","lines":"95,96"}}],"payload":{"tag":"li","lines":"93,96"}},{"content":"&#x9019;&#x4e9b;&#x64cd;&#x4f5c;&#x53ef;&#x8207; Next Router &#x540c;&#x6b65;&#xff08;&#x642d;&#x914d; <code>usePathname</code>, <code>useSearchParams</code>&#xff09;","children":[],"payload":{"tag":"li","lines":"96,98"}}],"payload":{"tag":"h2","lines":"89,90"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>

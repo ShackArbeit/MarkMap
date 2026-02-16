@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Next.js Updating Data&#xff08;&#x91cd;&#x9ede;&#x8907;&#x7fd2;&#x7248;&#xff09;","children":[{"content":"1) Server Functions / Server Actions &#x662f;&#x4ec0;&#x9ebc;&#xff1f;","children":[{"content":"&#x91cd;&#x8981;&#x7279;&#x6027;","children":[{"content":"Actions &#x80cc;&#x5f8c;&#x4f7f;&#x7528; <strong>POST</strong>&#xff08;&#x53ea;&#x6709; POST &#x80fd;&#x89f8;&#x767c;&#xff09;","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"&#x8207; Next.js cache &#x67b6;&#x69cb;&#x6574;&#x5408;&#xff1a;","children":[{"content":"&#x4e00;&#x6b21; roundtrip &#x53ef;&#x56de;&#x50b3;&#x66f4;&#x65b0;&#x5f8c; UI + &#x65b0;&#x8cc7;&#x6599;&#xff08;&#x6846;&#x67b6;&#x8ca0;&#x8cac;&#x5354;&#x8abf;&#xff09;","children":[],"payload":{"tag":"li","lines":"15,17"}}],"payload":{"tag":"li","lines":"14,17"}}],"payload":{"tag":"h3","lines":"12,13"}}],"payload":{"tag":"h2","lines":"6,7"}},{"content":"2) &#x600e;&#x9ebc;&#x5efa;&#x7acb; Server Function&#xff1f;","children":[{"content":"&#x7528; <code>&apos;use server&apos;</code>","children":[{"content":"&#x65b9;&#x5f0f; A&#xff1a;&#x5728;&#x51fd;&#x5f0f;&#x5167;&#x52a0; <code>&apos;use server&apos;</code>","children":[],"payload":{"tag":"li","lines":"21,22"}},{"content":"&#x65b9;&#x5f0f; B&#xff1a;&#x5728;&#x6a94;&#x6848;&#x9802;&#x90e8;&#x52a0; <code>&apos;use server&apos;</code>&#xff08;&#x8a72;&#x6a94;&#x6848; exports &#x90fd;&#x662f; server functions&#xff09;","children":[],"payload":{"tag":"li","lines":"22,24"}}],"payload":{"tag":"h3","lines":"20,21"}}],"payload":{"tag":"h2","lines":"19,20"}},{"content":"3) &#x5728;&#x54ea;&#x88e1;&#x53ef;&#x4ee5;&#x300c;&#x5b9a;&#x7fa9; / &#x547c;&#x53eb;&#x300d;&#xff1f;","children":[{"content":"Server Components","children":[{"content":"&#x2705; &#x53ef;&#x4ee5; inline &#x5b9a;&#x7fa9; Server Action&#xff08;&#x51fd;&#x5f0f;&#x5167; <code>&apos;use server&apos;</code>&#xff09;","children":[],"payload":{"tag":"li","lines":"28,29"}},{"content":"&#x2705; &#x8868;&#x55ae;&#x5177;&#x5099; progressive enhancement&#xff1a;","children":[{"content":"&#x5c31;&#x7b97; JS &#x9084;&#x6c92;&#x8f09;&#x5165;/&#x88ab;&#x95dc;&#x6389;&#xff0c;form &#x4ecd;&#x80fd;&#x63d0;&#x4ea4;","children":[],"payload":{"tag":"li","lines":"30,32"}}],"payload":{"tag":"li","lines":"29,32"}}],"payload":{"tag":"h3","lines":"27,28"}},{"content":"Client Components","children":[{"content":"&#x274c; &#x4e0d;&#x80fd;&#x5728; Client Component &#x5167;&#x300c;&#x5b9a;&#x7fa9;&#x300d;Server Function","children":[],"payload":{"tag":"li","lines":"33,34"}},{"content":"&#x2705; &#x4f46;&#x53ef;&#x4ee5;&#x300c;&#x547c;&#x53eb;&#x300d;&#xff1a;","children":[{"content":"&#x5f9e; <code>&apos;use server&apos;</code> &#x6a94;&#x6848; import","children":[],"payload":{"tag":"li","lines":"35,36"}},{"content":"&#x7528; <code>formAction</code> / <code>&lt;form action={...}&gt;</code> / event handler &#x547c;&#x53eb;","children":[],"payload":{"tag":"li","lines":"36,37"}}],"payload":{"tag":"li","lines":"34,37"}},{"content":"&#x88dc;&#x5145;&#xff1a;JS &#x672a;&#x8f09;&#x5165;&#x6642;&#xff0c;&#x63d0;&#x4ea4;&#x6703;&#x6392;&#x968a;&#xff1b;hydration &#x5f8c;&#x63d0;&#x4ea4;&#x4e0d;&#x6703;&#x6574;&#x9801;&#x5237;&#x65b0;","children":[],"payload":{"tag":"li","lines":"37,39"}}],"payload":{"tag":"h3","lines":"32,33"}}],"payload":{"tag":"h2","lines":"26,27"}},{"content":"4) &#x89f8;&#x767c;&#xff08;invoke&#xff09;Server Functions &#x7684;&#x5169;&#x7a2e;&#x4e3b;&#x6d41;&#x65b9;&#x5f0f;","children":[{"content":"A) <code>&lt;form action={serverAction}&gt;</code>","children":[{"content":"action &#x6703;&#x81ea;&#x52d5;&#x6536;&#x5230; <code>FormData</code>","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"&#x7528; <code>formData.get(&apos;field&apos;)</code> &#x53d6;&#x503c;","children":[],"payload":{"tag":"li","lines":"44,46"}}],"payload":{"tag":"h3","lines":"42,43"}},{"content":"B) Client event handler / useEffect","children":[{"content":"&#x4f8b;&#x5982; <code>onClick</code> &#x5167; <code>await action()</code> &#x518d;&#x66f4;&#x65b0; client state","children":[],"payload":{"tag":"li","lines":"47,48"}},{"content":"useEffect &#x53ef;&#x5728; mount &#x6216;&#x4f9d;&#x8cf4;&#x8b8a;&#x52d5;&#x6642;&#x89f8;&#x767c; action&#xff08;&#x4f8b;&#x5982; view count&#xff09;","children":[],"payload":{"tag":"li","lines":"48,50"}}],"payload":{"tag":"h3","lines":"46,47"}}],"payload":{"tag":"h2","lines":"41,42"}},{"content":"5) Pending &#x72c0;&#x614b;&#xff08;loading feedback&#xff09;","children":[{"content":"&#x7528; <code>useActionState</code> + <code>startTransition</code>","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"&#x53d6;&#x5f97; <code>pending</code> boolean &#x4f86;&#x986f;&#x793a; spinner / disabled &#x72c0;&#x614b;","children":[],"payload":{"tag":"li","lines":"57,59"}}],"payload":{"tag":"h2","lines":"55,56"}},{"content":"6) &#x66f4;&#x65b0;&#x5f8c; UI &#x540c;&#x6b65;&#xff1a;&#x4e09;&#x500b;&#x6700;&#x5e38;&#x7528;&#x7684;&#x64cd;&#x4f5c;","children":[{"content":"A) <code>refresh()</code>&#xff08;&#x66f4;&#x65b0;&#x756b;&#x9762;&#xff09;","children":[{"content":"&#x7528;&#x65bc; mutation &#x5f8c;&#x60f3;&#x8b93;&#x76ee;&#x524d;&#x9801;&#x9762;&#x53cd;&#x6620;&#x6700;&#x65b0;&#x72c0;&#x614b;","children":[],"payload":{"tag":"li","lines":"63,64"}},{"content":"&#x4f5c;&#x7528;&#xff1a;&#x5237;&#x65b0; client router&#xff08;&#x8b93; UI &#x91cd;&#x65b0;&#x5c0d;&#x9f4a; server&#xff09;","children":[],"payload":{"tag":"li","lines":"64,65"}},{"content":"&#x6ce8;&#x610f;&#xff1a;<code>refresh()</code> <strong>&#x4e0d;&#x6703;</strong> revalidate tagged data","children":[],"payload":{"tag":"li","lines":"65,67"}}],"payload":{"tag":"h3","lines":"62,63"}},{"content":"B) <code>revalidatePath()</code> / <code>revalidateTag()</code>&#xff08;&#x66f4;&#x65b0;&#x5feb;&#x53d6;&#xff09;","children":[{"content":"&#x66f4;&#x65b0;&#x8cc7;&#x6599;&#x5f8c;&#xff0c;&#x8b93; Next.js cache &#x5931;&#x6548;&#x4e26;&#x91cd;&#x6293;","children":[],"payload":{"tag":"li","lines":"68,69"}},{"content":"&#x5e38;&#x7528;&#xff1a;","children":[{"content":"<code>revalidatePath(&apos;/posts&apos;)</code>","children":[],"payload":{"tag":"li","lines":"70,71"}},{"content":"<code>revalidateTag(&apos;posts&apos;)</code>&#xff08;&#x9700;&#x5148; tag&#xff09;","children":[],"payload":{"tag":"li","lines":"71,73"}}],"payload":{"tag":"li","lines":"69,73"}}],"payload":{"tag":"h3","lines":"67,68"}},{"content":"C) <code>redirect()</code>&#xff08;&#x66f4;&#x65b0;&#x5f8c;&#x5c0e;&#x9801;&#xff09;","children":[{"content":"&#x66f4;&#x65b0;&#x5f8c;&#x628a;&#x4f7f;&#x7528;&#x8005;&#x5c0e;&#x5230;&#x65b0;&#x9801;","children":[],"payload":{"tag":"li","lines":"74,75"}},{"content":"&#x91cd;&#x9ede;&#xff1a;","children":[{"content":"<code>redirect()</code> &#x6703;&#x4e2d;&#x65b7;&#x6d41;&#x7a0b;&#xff08;&#x5f8c;&#x9762;&#x7a0b;&#x5f0f;&#x4e0d;&#x6703;&#x8dd1;&#xff09;","children":[],"payload":{"tag":"li","lines":"76,77"}},{"content":"&#x82e5;&#x8981;&#x78ba;&#x4fdd;&#x8cc7;&#x6599;&#x65b0;&#x9bae; &#x2192; &#x5148; <code>revalidatePath/Tag</code> &#x518d; redirect","children":[],"payload":{"tag":"li","lines":"77,79"}}],"payload":{"tag":"li","lines":"75,79"}}],"payload":{"tag":"h3","lines":"73,74"}}],"payload":{"tag":"h2","lines":"61,62"}},{"content":"7) Cookies&#xff08;&#x5728; Server Action &#x5167;&#x64cd;&#x4f5c;&#xff09;","children":[{"content":"&#x53ef;&#x5728; Server Action &#x7528; <code>cookies()</code>&#xff1a;","children":[{"content":"<code>get / set / delete</code>","children":[],"payload":{"tag":"li","lines":"83,84"}}],"payload":{"tag":"li","lines":"82,84"}},{"content":"set/delete cookie &#x5f8c;&#xff1a;","children":[{"content":"Next.js &#x6703;&#x5728; server &#x91cd;&#x65b0; render &#x76ee;&#x524d; page/layout","children":[],"payload":{"tag":"li","lines":"85,86"}},{"content":"&#x8b93; UI &#x7acb;&#x5373;&#x53cd;&#x6620;&#x65b0;&#x7684; cookie &#x503c;","children":[],"payload":{"tag":"li","lines":"86,87"}}],"payload":{"tag":"li","lines":"84,87"}},{"content":"&#x88dc;&#x5145;&#xff1a;","children":[{"content":"client state &#x6703;&#x88ab;&#x4fdd;&#x7559;&#xff08;&#x76f8;&#x540c;&#x5143;&#x4ef6;&#xff09;","children":[],"payload":{"tag":"li","lines":"88,89"}},{"content":"effects &#x53ef;&#x80fd;&#x4f9d;&#x4f9d;&#x8cf4;&#x800c;&#x91cd;&#x8dd1;","children":[],"payload":{"tag":"li","lines":"89,91"}}],"payload":{"tag":"li","lines":"87,91"}}],"payload":{"tag":"h2","lines":"81,82"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>
