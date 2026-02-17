@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Next.js Metadata &amp; OG Images&#xff08;&#x91cd;&#x9ede;&#x8907;&#x7fd2;&#x7248;&#xff09;","children":[{"content":"1) Metadata API &#x63d0;&#x4f9b;&#x4ec0;&#x9ebc;&#xff1f;","children":[{"content":"&#x7528;&#x4f86;&#x5b9a;&#x7fa9;&#x9801;&#x9762;&#x7684; <code>&lt;head&gt;</code>&#xff08;SEO&#x3001;&#x793e;&#x7fa4;&#x5206;&#x4eab;&#xff09;","children":[],"payload":{"tag":"li","lines":"7,8"}},{"content":"&#x4e09;&#x7a2e;&#x4e3b;&#x8981;&#x65b9;&#x5f0f;&#xff1a;","children":[{"content":"1. &#x975c;&#x614b; <code>metadata</code> &#x7269;&#x4ef6;","children":[],"payload":{"tag":"li","lines":"9,10","listIndex":1}},{"content":"2. &#x52d5;&#x614b; <code>generateMetadata()</code>","children":[],"payload":{"tag":"li","lines":"10,11","listIndex":2}},{"content":"3. &#x7279;&#x6b8a;&#x6a94;&#x6848;&#xff08;favicon / OG / twitter / robots / sitemap&#xff09;","children":[],"payload":{"tag":"li","lines":"11,13","listIndex":3}}],"payload":{"tag":"li","lines":"8,13"}}],"payload":{"tag":"h2","lines":"6,7"}},{"content":"2) &#x9810;&#x8a2d;&#x4e00;&#x5b9a;&#x6703;&#x6709;&#x7684; meta&#xff08;&#x5373;&#x4f7f;&#x4f60;&#x6c92;&#x5beb;&#xff09;","children":[{"content":"charset&#xff1a;<code>&lt;meta charset=&quot;utf-8&quot; /&gt;</code>","children":[],"payload":{"tag":"li","lines":"18,19"}},{"content":"viewport&#xff1a;<code>&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot; /&gt;</code>","children":[],"payload":{"tag":"li","lines":"19,21"}}],"payload":{"tag":"h2","lines":"17,18"}},{"content":"3) &#x975c;&#x614b; metadata&#xff08;metadata &#x7269;&#x4ef6;&#xff09;","children":[{"content":"&#x5728; <code>layout.tsx</code> &#x6216; <code>page.tsx</code> export&#xff1a;","children":[{"content":"<code>export const metadata: Metadata = {...}</code>","children":[],"payload":{"tag":"li","lines":"25,27"}}],"payload":{"tag":"li","lines":"24,27"}}],"payload":{"tag":"h2","lines":"23,24"}},{"content":"4) &#x52d5;&#x614b; metadata&#xff08;generateMetadata&#xff09;","children":[{"content":"Streaming metadata&#xff08;&#x53ea;&#x8a18;&#x91cd;&#x9ede;&#xff09;","children":[{"content":"&#x52d5;&#x614b;&#x9801;&#xff1a;metadata &#x53ef;&#x80fd;&#x6703;&#x300c;&#x7368;&#x7acb;&#x4e32;&#x6d41;&#x300d;&#x6ce8;&#x5165; HTML&#xff08;&#x4e0d;&#x963b;&#x585e; UI&#xff09;","children":[],"payload":{"tag":"li","lines":"34,35"}},{"content":"&#x4f46;&#x5c0d;&#x90e8;&#x5206; bots/crawlers&#xff08;&#x8981;&#x6c42; head &#x5148;&#x5b8c;&#x6574;&#xff09;&#x6703;&#x505c;&#x7528; streaming","children":[{"content":"&#x4ee5; request &#x7684; User-Agent &#x5224;&#x65b7;","children":[],"payload":{"tag":"li","lines":"36,37"}}],"payload":{"tag":"li","lines":"35,37"}},{"content":"&#x53ef;&#x7528; <code>htmlLimitedBots</code> &#x5728; next config &#x8abf;&#x6574;/&#x95dc;&#x9589;","children":[],"payload":{"tag":"li","lines":"37,38"}},{"content":"&#x975c;&#x614b;&#x9801;&#xff08;build time &#x53ef;&#x7b97;&#x5b8c;&#xff09;&#x4e0d;&#x9700;&#x8981; streaming","children":[],"payload":{"tag":"li","lines":"38,40"}}],"payload":{"tag":"h3","lines":"33,34"}}],"payload":{"tag":"h2","lines":"29,30"}},{"content":"5) &#x907f;&#x514d; metadata &#x8207; page &#x91cd;&#x8907;&#x6293;&#x8cc7;&#x6599;","children":[{"content":"&#x7528; <code>React.cache()</code> &#x628a;&#x8cc7;&#x6599;&#x53d6;&#x5f97;&#x51fd;&#x5f0f; memoize","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"<code>generateMetadata</code> &#x548c; <code>Page</code> &#x90fd;&#x547c;&#x53eb;&#x540c;&#x4e00;&#x500b; cached function &#x2192; &#x540c;&#x4e00;&#x6b21; request &#x53ea;&#x6293;&#x4e00;&#x6b21;","children":[],"payload":{"tag":"li","lines":"44,46"}}],"payload":{"tag":"h2","lines":"42,43"}},{"content":"6) File-based metadata&#xff08;&#x7279;&#x6b8a;&#x6a94;&#x6848;&#xff09;","children":[{"content":"&#x8986;&#x84cb;&#x898f;&#x5247;&#xff08;&#x8a18;&#x9019;&#x53e5;&#xff09;","children":[{"content":"&#x8d8a;&#x300c;&#x6df1;&#x5c64;&#x8def;&#x7531;&#x8cc7;&#x6599;&#x593e;&#x300d;&#x7684;&#x6a94;&#x6848; <strong>&#x512a;&#x5148;</strong>&#xff08;&#x66f4; specific&#xff09;","children":[],"payload":{"tag":"li","lines":"57,59"}}],"payload":{"tag":"h3","lines":"56,57"}}],"payload":{"tag":"h2","lines":"48,49"}},{"content":"7) Favicons&#xff08;favicon&#xff09;","children":[{"content":"&#x6700;&#x5e38;&#x898b;&#xff1a;&#x5728; <code>app/</code> &#x6839;&#x76ee;&#x9304;&#x653e; <code>favicon.ico</code>","children":[],"payload":{"tag":"li","lines":"62,63"}},{"content":"&#x4e5f;&#x53ef;&#x4ee5;&#x7528;&#x7a0b;&#x5f0f;&#x52d5;&#x614b;&#x751f;&#x6210;&#xff08;&#x77e5;&#x9053;&#x5373;&#x53ef;&#xff09;","children":[],"payload":{"tag":"li","lines":"63,65"}}],"payload":{"tag":"h2","lines":"61,62"}},{"content":"8) Open Graph&#xff08;OG&#xff09;&#x5716;&#x7247;","children":[{"content":"&#x975c;&#x614b; OG &#x5716;","children":[{"content":"&#x653e; <code>opengraph-image.jpg/png/...</code>","children":[],"payload":{"tag":"li","lines":"69,70"}},{"content":"&#x53ef;&#x5728; <code>app/</code> &#x6839;&#x76ee;&#x9304;&#xff08;&#x5168;&#x7ad9;&#x9810;&#x8a2d;&#xff09;","children":[],"payload":{"tag":"li","lines":"70,71"}},{"content":"&#x4e5f;&#x53ef;&#x653e;&#x5728;&#x5b50;&#x8cc7;&#x6599;&#x593e;&#xff08;&#x4f8b;&#x5982; <code>app/blog/opengraph-image.jpg</code>&#xff09;&#x505a;&#x8def;&#x7531;&#x5c08;&#x7528;","children":[],"payload":{"tag":"li","lines":"71,73"}}],"payload":{"tag":"h3","lines":"68,69"}},{"content":"&#x52d5;&#x614b; OG &#x5716;&#xff08;&#x4f9d;&#x8cc7;&#x6599;&#x751f;&#x6210;&#xff09;","children":[{"content":"&#x7528; <code>opengraph-image.tsx</code>","children":[],"payload":{"tag":"li","lines":"74,75"}},{"content":"&#x56de;&#x50b3; <code>new ImageResponse(...)</code>&#xff08;JSX + &#x90e8;&#x5206; CSS&#xff09;","children":[],"payload":{"tag":"li","lines":"75,76"}},{"content":"&#x5e38;&#x898b;&#x7528;&#x9014;&#xff1a;&#x6bcf;&#x7bc7;&#x6587;&#x7ae0;&#x4e00;&#x5f35;&#x4e0d;&#x540c; OG &#x5716;","children":[],"payload":{"tag":"li","lines":"76,78"}}],"payload":{"tag":"h3","lines":"73,74"}}],"payload":{"tag":"h2","lines":"67,68"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+<title>Markmap</title>
+<style>
+* {
+  margin: 0;
+  padding: 0;
+}
+html {
+  font-family: ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji',
+    'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+#mindmap {
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+.markmap-dark {
+  background: #27272a;
+  color: white;
+}
+</style>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/style.css">
+</head>
+<body>
+<svg id="mindmap"></svg>
+<script src="https://cdn.jsdelivr.net/npm/d3@7.9.0/dist/d3.min.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-view@0.18.12/dist/browser/index.js"></script><script src="https://cdn.jsdelivr.net/npm/markmap-toolbar@0.18.12/dist/index.js"></script><script>(r => {
+              setTimeout(r);
+            })(function renderToolbar() {
+  const {
+    markmap,
+    mm
+  } = window;
+  const {
+    el
+  } = markmap.Toolbar.create(mm);
+  el.setAttribute('style', 'position:absolute;bottom:20px;right:20px');
+  document.body.append(el);
+})</script><script>((getMarkmap, getOptions, root2, jsonOptions) => {
+              const markmap = getMarkmap();
+              window.mm = markmap.Markmap.create(
+                "svg#mindmap",
+                (getOptions || markmap.deriveOptions)(jsonOptions),
+                root2
+              );
+              if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+                document.documentElement.classList.add("markmap-dark");
+              }
+            })(() => window.markmap,null,{"content":"Next.js Error Handling&#xff08;&#x91cd;&#x9ede;&#x8907;&#x7fd2;&#x7248;&#xff09;","children":[{"content":"1) &#x5169;&#x5927;&#x985e;&#x932f;&#x8aa4;&#xff08;&#x5148;&#x80cc;&#x9019;&#x500b;&#xff09;","children":[{"content":"A) Expected errors&#xff08;&#x53ef;&#x9810;&#x671f;&#xff09;","children":[{"content":"&#x4f8b;&#xff1a;&#x8868;&#x55ae;&#x9a57;&#x8b49;&#x5931;&#x6557;&#x3001;API &#x56de;&#x50b3;&#x5931;&#x6557;&#xff08;&#x6b63;&#x5e38;&#x6d41;&#x7a0b;&#x53ef;&#x80fd;&#x767c;&#x751f;&#xff09;","children":[],"payload":{"tag":"li","lines":"9,10"}},{"content":"&#x539f;&#x5247;&#xff1a;<strong>&#x4e0d;&#x8981; throw</strong>&#xff0c;&#x8981;&#x300c;&#x660e;&#x78ba;&#x8655;&#x7406;&#x4e26;&#x56de;&#x50b3;&#x7d66; client&#x300d;","children":[],"payload":{"tag":"li","lines":"10,12"}}],"payload":{"tag":"h3","lines":"8,9"}},{"content":"B) Uncaught exceptions&#xff08;&#x975e;&#x9810;&#x671f;&#xff09;","children":[{"content":"&#x4f8b;&#xff1a;&#x7a0b;&#x5f0f; bug&#x3001;&#x4e0d;&#x53ef;&#x9810;&#x671f;&#x4f8b;&#x5916;","children":[],"payload":{"tag":"li","lines":"13,14"}},{"content":"&#x539f;&#x5247;&#xff1a;<strong>throw</strong> &#x2192; &#x4ea4;&#x7d66; <strong>Error Boundary</strong> &#x986f;&#x793a; fallback UI","children":[],"payload":{"tag":"li","lines":"14,16"}}],"payload":{"tag":"h3","lines":"12,13"}}],"payload":{"tag":"h2","lines":"7,8"}},{"content":"2) Expected errors &#x600e;&#x9ebc;&#x8655;&#x7406;&#xff1f;","children":[{"content":"Server Functions / Server Actions","children":[{"content":"&#x7528; <code>useActionState</code>","children":[],"payload":{"tag":"li","lines":"20,21"}},{"content":"&#x4f5c;&#x6cd5;&#xff1a;","children":[{"content":"action &#x4ee5;&#x300c;&#x56de;&#x50b3;&#x503c;&#x300d;&#x8868;&#x793a;&#x932f;&#x8aa4;&#xff08;&#x4f8b;&#x5982; <code>{ message: &apos;...&apos; }</code>&#xff09;","children":[],"payload":{"tag":"li","lines":"22,23"}},{"content":"client &#x7aef;&#x7528; <code>state.message</code> &#x986f;&#x793a;&#x932f;&#x8aa4;","children":[],"payload":{"tag":"li","lines":"23,24"}}],"payload":{"tag":"li","lines":"21,24"}},{"content":"&#x91cd;&#x9ede;&#xff1a;&#x5c0d; expected errors <strong>&#x907f;&#x514d; try/catch + throw</strong>","children":[],"payload":{"tag":"li","lines":"24,26"}}],"payload":{"tag":"h3","lines":"19,20"}},{"content":"Server Components&#xff08;&#x6293;&#x8cc7;&#x6599;&#xff09;","children":[{"content":"&#x7528; <code>res.ok</code> &#x5224;&#x65b7;","children":[],"payload":{"tag":"li","lines":"27,28"}},{"content":"&#x53ef;&#x4ee5;&#xff1a;","children":[{"content":"conditional render error UI","children":[],"payload":{"tag":"li","lines":"29,30"}},{"content":"&#x6216; redirect&#xff08;&#x8996;&#x9700;&#x6c42;&#xff09;","children":[],"payload":{"tag":"li","lines":"30,32"}}],"payload":{"tag":"li","lines":"28,32"}}],"payload":{"tag":"h3","lines":"26,27"}}],"payload":{"tag":"h2","lines":"18,19"}},{"content":"3) 404&#xff1a;Not Found","children":[{"content":"&#x5728; route segment &#x5167;&#x547c;&#x53eb; <code>notFound()</code>","children":[],"payload":{"tag":"li","lines":"35,36"}},{"content":"&#x642d;&#x914d; <code>not-found.tsx</code> &#x5b9a;&#x7fa9; 404 UI","children":[],"payload":{"tag":"li","lines":"36,38"}}],"payload":{"tag":"h2","lines":"34,35"}},{"content":"4) Uncaught exceptions&#xff1a;&#x7528; Error Boundaries&#xff08;error.tsx&#xff09;","children":[{"content":"Next.js &#x7528; Error Boundary &#x6355;&#x6349;&#x300c;&#x6e32;&#x67d3;&#x671f;&#x9593;&#x300d;&#x7684;&#x4f8b;&#x5916;","children":[],"payload":{"tag":"li","lines":"41,42"}},{"content":"&#x5efa;&#x7acb;&#x65b9;&#x5f0f;&#xff1a;","children":[{"content":"&#x5728; route segment &#x653e; <code>error.tsx</code>","children":[],"payload":{"tag":"li","lines":"43,44"}},{"content":"&#x5fc5;&#x9808;&#x662f; <strong>Client Component</strong>&#xff08;&#x8981; <code>&apos;use client&apos;</code>&#xff09;","children":[],"payload":{"tag":"li","lines":"44,45"}}],"payload":{"tag":"li","lines":"42,45"}},{"content":"&#x6703;&#x6536;&#x5230;&#xff1a;","children":[{"content":"<code>error</code>","children":[],"payload":{"tag":"li","lines":"46,47"}},{"content":"<code>reset()</code>&#xff1a;&#x5617;&#x8a66;&#x91cd;&#x65b0; render &#x8a72; segment","children":[],"payload":{"tag":"li","lines":"47,48"}}],"payload":{"tag":"li","lines":"45,48"}},{"content":"&#x932f;&#x8aa4;&#x6703;&#x5f80;&#x4e0a; bubble &#x5230;&#x6700;&#x8fd1;&#x7684; error boundary<br>\n&#x2192; &#x53ef;&#x5728;&#x4e0d;&#x540c;&#x5c64;&#x7d1a;&#x653e;&#x591a;&#x500b; <code>error.tsx</code> &#x505a;&#x300c;&#x5206;&#x5c64;&#x8655;&#x7406;&#x300d;","children":[],"payload":{"tag":"li","lines":"48,51"}}],"payload":{"tag":"h2","lines":"40,41"}},{"content":"5) Error Boundary &#x6355;&#x4e0d;&#x5230;&#x54ea;&#x4e9b;&#x932f;&#xff1f;","children":[{"content":"<strong>event handlers</strong> &#x5167;&#x7684;&#x932f;&#xff08;onClick &#x7b49;&#xff09;&#x4e0d;&#x6703;&#x88ab; error boundary &#x81ea;&#x52d5;&#x6355;&#x6349;","children":[],"payload":{"tag":"li","lines":"54,55"}},{"content":"&#x9019;&#x985e;&#x8981;&#x4f60;&#x81ea;&#x5df1;&#xff1a;","children":[{"content":"try/catch","children":[],"payload":{"tag":"li","lines":"56,57"}},{"content":"&#x7528; <code>useState/useReducer</code> &#x5b58;&#x932f;&#x8aa4;&#x72c0;&#x614b;&#x4e26;&#x986f;&#x793a; fallback","children":[],"payload":{"tag":"li","lines":"57,59"}}],"payload":{"tag":"li","lines":"55,59"}}],"payload":{"tag":"h2","lines":"53,54"}},{"content":"6) &#x5168;&#x57df;&#x932f;&#x8aa4;&#xff1a;global-error.tsx","children":[{"content":"&#x653e;&#x5728; <code>app/global-error.tsx</code>","children":[],"payload":{"tag":"li","lines":"64,65"}},{"content":"&#x7528;&#x65bc; root layout &#x5c64;&#x7d1a;&#x7684;&#x932f;&#x8aa4; UI","children":[],"payload":{"tag":"li","lines":"65,66"}},{"content":"&#x5fc5;&#x9808;&#x81ea;&#x5df1;&#x63d0;&#x4f9b; <code>&lt;html&gt;</code> &#x8207; <code>&lt;body&gt;</code>&#xff08;&#x56e0;&#x70ba;&#x6703;&#x53d6;&#x4ee3; root layout&#xff09;","children":[],"payload":{"tag":"li","lines":"66,68"}}],"payload":{"tag":"h2","lines":"63,64"}}],"payload":{"tag":"h1","lines":"0,1"}},{})</script>
+</body>
+</html>
